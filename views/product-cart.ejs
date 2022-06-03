@@ -1,290 +1,249 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/index.css">
-    <link rel="stylesheet" href="./assets/css/base.css">
-    <link rel="stylesheet" href="./assets/css/product-cart.css">
-    <link rel="stylesheet" href="./assets/css/deltail-product.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />    <title>Document</title>
+    <base href="/">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/product-cart.css">
+    <link rel="stylesheet" href="css/deltail-product.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
 </head>
+
 <body>
-    
+
     <div class="website">
         <div class="header">
-            
-                <div class="header-top">
-                    <div class="grid">
-                        <ul class="header-top-list">
-                            <li class="header-top-item">
-                                <a href="#" class="header-top-link">
-                                    PETCITY - SIÊU THỊ THÚ CƯNG ONLINE
-                                </a>
-                            </li>
-                            <li class="header-top-item">
-                                <a href="#" class="header-top-link">
-                                    CẦN LÀ CÓ - MÒ LÀ THẤY
-                                </a>
-                            </li>
-                            <li class="header-top-item">
-                                <a href="#" class="header-top-link">
-                                    <i class="fa-brands fa-facebook"></i>
-                                </a>
-                            </li>
-                            <li class="header-top-item">
-                                <a href="#" class="header-top-link">
-                                    <i class="fa-brands fa-instagram-square"></i>
-                                </a>
-                            </li>
-                            <li class="header-top-item">
-                                <a href="#" class="header-top-link">
-                                    <i class="fa-brands fa-twitter"></i>
-                                </a>
-                            </li>
-                        </ul>
+
+            <head>
+                <%- include('./partials/header.ejs') -%>
+            </head>
+            <div class="grid" style="padding-top:50px">
+                <div class="header-bottom">
+                    <div class="header-bottom-logo">
+                        <img class="header-bottom-logo-img" src="./assets/img/logo.png" alt="">
                     </div>
-                   
-                </div>
-                <div class="grid">
-                    <div class="header-bottom">
-                        <div class="header-bottom-logo">
-                            <img class="header-bottom-logo-img" src="./assets/img/logo.png" alt="">
-                        </div>
-                        <div class="header-bottom-search">
-                            <div class="header-bottom-input">
-                                <input type="text" placeholder="Tìm kiếm...">
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                            </div>
-                        </div>
-                        <div class="header-bottom-cart">
-                            <div id="del" class="cart-product">
-                                <h3>My Cart</h3>
-                                <div class="wrap-cart">
-                                    <ul  class="cart-product-list">
-                                        <!-- <li class="cart-product-items">
-                                            <img src="./assets/img/avt-prdt1.jpg" alt="">
-                                            <div class="product-content">
-                                                <p>Me-o – Thức ăn mèo Pesian 400g</p>
-                                                <span class="product-cost">140.000</span>
-                                                <span class="product-VND">đ</span>
-                                            </div>
-                                            <div class="delete-product">
-                                                <i class="fa-solid fa-xmark"></i>
-                                            </div>
-                                        </li>
-                                        <li class="cart-product-items">
-                                            <img src="./assets/img/avt-prdt1.jpg" alt="">
-                                            <div class="product-content">
-                                                <p>Me-o – Thức ăn mèo Pesian 400g</p>
-                                                <span class="product-cost">140.000</span>
-                                                <span class="product-VND">đ</span>
-                                            </div>
-                                            <div class="delete-product">
-                                                <i class="fa-solid fa-xmark"></i>
-                                            </div>
-                                        </li> -->
-                                    </ul>
-                                </div>
-                                 
-                                  
-                                
-                            </div>
-                            <div class="header-bottom-cart-text">
-                                    <span>Giỏ hàng / </span>
-                                    <span id="demsl" class="header-bottom-cart-price">0</span>
-                                    
-                            </div>
-                            <div class="header-bottom-cart-logo">
-                                    <i class="fa-solid fa-baby-carriage"></i>                           </div>
-                            </div>
+                    <div class="header-bottom-search">
+                        <div class="header-bottom-input">
+                            <input type="text" placeholder="Tìm kiếm...">
+                            <i class="fa-solid fa-magnifying-glass"></i>
                         </div>
                     </div>
-                </div>
-                
-        </div>
-        <div class="grid">
-            <div class="nav">
-                <ul class="nav-list">
-                    <li class="nav-item">
-                        <a href="index.html" class="nav-item-link">
-                            trang chủ
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-item-link">
-                            giới thiệu
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-item-link">
-                            shop cún cưng
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-item-link">
-                            shop mèo cưng
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-item-link">
-                            shop vật nuôi khác
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-item-link">
-                            tin tức
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-item-link">
-                            mẹo vặt
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-item-link">
-                            liên hệ
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="grid">
-            
-            <div class="body-cart">
-                <!-- <div class="notify">
-                    <h3>Không có sản phẩm trong giỏ hàng</h3>
-                    <button class="btn return-home-page">Quay lại trang chủ</button>
-                </div> -->
-               <div class="mycart">
-                   <div class="mycart-left">
-                        <div class="mycart-left-head">
-                            <ul>
-                                <li style="width: 40%; ">Sản phẩm</li>
-                                <li style="width: 20%; ">Giá</li>
-                                <li style="width: 20%;">Số lượng</li>
-                                <li style="width: 20%;">Tổng cộng</li>
-                            </ul>
-                        </div>
-                        <div class="mycart-left-body">
-                            <ul id="showcart">
-                                <!-- <li class="mycart-left-body-items">
-                                    <div class="close item1">
-                                        <div class="icon">
+                    <div class="header-bottom-cart">
+                        <div id="del" class="cart-product">
+                            <h3>My Cart</h3>
+                            <div class="wrap-cart">
+                                <ul class="cart-product-list">
+                                    <li class="cart-product-items">
+                                        <img src="./assets/img/avt-prdt1.jpg" alt="">
+                                        <div class="product-content">
+                                            <p>Me-o – Thức ăn mèo Pesian 400g</p>
+                                            <span class="product-cost">140.000</span>
+                                            <span class="product-VND">đ</span>
+                                        </div>
+                                        <div class="delete-product">
                                             <i class="fa-solid fa-xmark"></i>
                                         </div>
-                                        <div class="img">
-                                            <img src="./assets/img/avt-prdt1.jpg" alt="">
-                                        </div>
-                                        <div class="title">
-                                            <p>Me-o - Thức ăn mèo Pesian 400g</p>
-                                        </div>
-                                    </div>
-                                    <div class="item2">
-                                        <span>140.000 d</span>
-                                    </div>
-                                    <div class="item3">
-                                        <input type="number" min="0" max="10" value="1">
-                                    </div>
-                                    <div class="item4">
-                                        <span>140.000 đ<span>
-                                    </div>
-                                </li> -->
-                            </ul>
-                        </div>
-                   </div>
-                   <div class="mycart-right">
-                        <div class="form">
-                            <h2 class="form-header">Đăng nhập</h2>
-
-                            <div class="loign">
-                                <h3>Bạn đã có tài khoản? </h3> 
-                                <a href="form-login.html">loign</a>
-                            </div>
-                            <div class="signup">
-                                <h3>Bạn chưa có tài khoản? </h3> 
-                                <a href="form-signup.html">sign up</a>
-                            </div>
-                            <div class="list-sp-uachuong">
-                                <h3>Sản phẩm ưa chuộng</h3>
-                                <ul class="list">
-                                    <li class="item">
-                                        <img src="./assets/img/avt-prdt1.jpg" alt="" class="product-right-item-avt">
-                                        <div>
-                                            <p class="title">Me-o – Thức ăn mèo Pesian 400g</p>
-                                            <div>
-                                                <span class="price">120.000</span><span>đ</span>
-                                            </div>
-                                        </div>
                                     </li>
-                                    <li class="item">
-                                        <img src="./assets/img/avt-prdt1.jpg" alt="" class="product-right-item-avt">
-                                        <div>
-                                            <p class="title">Me-o – Thức ăn mèo Pesian 400g</p>
-                                            <div>
-                                                <span class="price">120.000</span><span>đ</span>
-                                            </div>
+                                    <li class="cart-product-items">
+                                        <img src="./assets/img/avt-prdt1.jpg" alt="">
+                                        <div class="product-content">
+                                            <p>Me-o – Thức ăn mèo Pesian 400g</p>
+                                            <span class="product-cost">140.000</span>
+                                            <span class="product-VND">đ</span>
                                         </div>
-                                    </li>
-                                    <li class="item">
-                                        <img src="./assets/img/avt-prdt1.jpg" alt="" class="product-right-item-avt">
-                                        <div>
-                                            <p class="title">Me-o – Thức ăn mèo Pesian 400g</p>
-                                            <div>
-                                                <span class="price">120.000</span><span>đ</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="item">
-                                        <img src="./assets/img/avt-prdt1.jpg" alt="" class="product-right-item-avt">
-                                        <div>
-                                            <p class="title">Me-o – Thức ăn mèo Pesian 400g</p>
-                                            <div>
-                                                <span class="price">120.000</span><span>đ</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="item">
-                                        <img src="./assets/img/avt-prdt1.jpg" alt="" class="product-right-item-avt">
-                                        <div>
-                                            <p class="title">Me-o – Thức ăn mèo Pesian 400g</p>
-                                            <div>
-                                                <span class="price">120.000</span><span>đ</span>
-                                            </div>
+                                        <div class="delete-product">
+                                            <i class="fa-solid fa-xmark"></i>
                                         </div>
                                     </li>
                                 </ul>
                             </div>
+
+
+
                         </div>
-                   </div>
-               </div>
+                        <div class="header-bottom-cart-text">
+                            <span>Giỏ hàng / </span>
+                            <span id="demsl" class="header-bottom-cart-price">0</span>
+
+                        </div>
+                        <div class="header-bottom-cart-logo">
+                            <i class="fa-solid fa-baby-carriage"></i>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="footer">
-            <div class="grid">
-                <ul class="footer-list">
-                    <li class="footer-item">
-                        <p>Mipec cung cấp thực phẩm sạch, an toàn, đảm bảo chất lượng hàng đầu. Xóa đi nỗi lo về an toàn thực phẩm</p>
-                        <span class="span1">
-                            <i class="fa-solid fa-location-dot"></i>
-                             114 Hà Thanh – Nha Trang
-                        </span> <br /> <br />
-                        <span  class="span1">
-                            <i class="fa-solid fa-envelope"></i> 
-                            mipec@gmail.com</span><br />
-                        <span  class="span1"> <br/>
-                            <i class="fa-solid fa-phone-flip"></i>
-                            0338161022</span>
-                    </li>
-                    <li class="footer-item footer-item-2">
-                        <h3 class="footer-item-2-head">bài viết mới</h3>
-                       <ul class="footer-item-2-body">
-                           <li class="footer-item-2-body-child1">
-                               <img src="/assets/img/logo1.png" alt="">
-                               <span>Ưu đãi hot hit – Mê tít ngày đông</span>
-                           </li>
-                           <li class="footer-item-2-body-child1">
+
+    </div>
+    <div class="grid">
+        <div class="nav">
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-item-link">
+                        trang chủ
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-item-link">
+                        giới thiệu
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-item-link">
+                        shop cún cưng
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-item-link">
+                        shop mèo cưng
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-item-link">
+                        shop vật nuôi khác
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-item-link">
+                        tin tức
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-item-link">
+                        mẹo vặt
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-item-link">
+                        liên hệ
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="grid">
+        <div class="body-cart">
+            <!-- <div class="notify">
+                    <h3>Không có sản phẩm trong giỏ hàng</h3>
+                    <button class="btn return-home-page">Quay lại trang chủ</button>
+                </div> -->
+            <div class="mycart">
+                <div class="mycart-left">
+                    <div class="mycart-left-head">
+                        <ul>
+                            <li style="width: 40%; ">Sản phẩm</li>
+                            <li style="width: 20%; ">Giá</li>
+                            <li style="width: 20%;">Số lượng</li>
+                            <li style="width: 20%;">Tổng cộng</li>
+                        </ul>
+                    </div>
+                    <div class="mycart-left-body">
+                        <ul id="showcart">
+                            <li class="mycart-left-body-items">
+                                <div class="close item1">
+                                    <div class="icon">
+                                        <i class="fa-solid fa-xmark"></i>
+                                    </div>
+                                    <div class="img">
+                                        <img src="img/avt-prdt1.jpg" alt="">
+                                    </div>
+                                    <div class="title">
+                                        <p>Me-o - Thức ăn mèo Pesian 400g</p>
+                                    </div>
+                                </div>
+                                <div class="item2">
+                                    <span>140.000 d</span>
+                                </div>
+                                <div class="item3">
+                                    <input type="number" min="0" max="10" value="1">
+                                </div>
+                                <div class="item4">
+                                    <span>140.000 đ<span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mycart-right">
+                    <div class="mycart-right-head">
+                        <h2>Thông tin người nhận</h2>
+                    </div>
+                    <div class="mycart-right-body">
+                        <div class="address">
+                            <input type="text" placeholder="Nhập địa chỉ của bạn">
+                            <p>Vui lòng nhập chính xác địa chỉ của bạn.</p>
+                        </div>
+                        <div class="phone">
+                            <input type="text" placeholder="Nhập số điện thoại của bạn">
+                        </div>
+                        <div class="title">
+                            <textarea rows="6">
+                                    write something here
+                                </textarea>
+                            <p>
+                                Ghi chú cho nhân viên giao hàng
+                                <i class="fa-solid fa-truck-fast"></i>
+                            </p>
+
+                        </div>
+                        <div class="pay">
+                            <h3>Phương thức thanh toán của bạn</h3>
+                            <div class="pay-direct">
+                                <input type="radio" name="gender">
+                                <span>Thanh toán trực tiếp với người giao hàng</span>
+                            </div>
+                            <div class="pay-credit">
+                                <input type="radio" name="gender">
+                                <span>Thanh toán qua internet banking</span>
+                                <div class="pay-credit-child">
+                                    <input type="text" placeholder="Chọn ngân hàng của bạn">
+                                    <select>
+                                        <option value="">
+                                            1
+                                        </option>
+                                        <option value="">
+                                            3
+                                        </option>
+                                        <option value="">
+                                            2
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="grid">
+            <ul class="footer-list">
+                <li class="footer-item">
+                    <p>Mipec cung cấp thực phẩm sạch, an toàn, đảm bảo chất lượng hàng đầu. Xóa đi nỗi lo về an toàn
+                        thực phẩm</p>
+                    <span class="span1">
+                        <i class="fa-solid fa-location-dot"></i>
+                        114 Hà Thanh – Nha Trang
+                    </span> <br /> <br />
+                    <span class="span1">
+                        <i class="fa-solid fa-envelope"></i>
+                        mipec@gmail.com</span><br />
+                    <span class="span1"> <br />
+                        <i class="fa-solid fa-phone-flip"></i>
+                        0338161022</span>
+                </li>
+                <li class="footer-item footer-item-2">
+                    <h3 class="footer-item-2-head">bài viết mới</h3>
+                    <ul class="footer-item-2-body">
+                        <li class="footer-item-2-body-child1">
                             <img src="/assets/img/logo1.png" alt="">
                             <span>Ưu đãi hot hit – Mê tít ngày đông</span>
                         </li>
@@ -292,29 +251,34 @@
                             <img src="/assets/img/logo1.png" alt="">
                             <span>Ưu đãi hot hit – Mê tít ngày đông</span>
                         </li>
-                       </ul>
-                    </li>
-                    <li class="footer-item footer-item-3">
-                        <h3 class="footer-item-3-head">Hỗ Trợ</h3>
-                        <span>Về với chúng tôi</span> <br/> <br/>
-                        <span>Trung tâm hỗ trợ</span><br/><br/>
-                        <span>Chính sách bảo mật</span><br/><br/>
-                        <span>Chính sách thanh toán</span><br/><br/>
-                        <span>Chính sách giao hàng</span>
-                    </li>
-                    <li class="footer-item footer-item-4">
-                        <h3 class="footer-item-4-head">FACEBOOK</h3>
-                        <img src="/assets/img/fb.jpeg" alt="">
-                    </li>
-                </ul>
-            </div>
+                        <li class="footer-item-2-body-child1">
+                            <img src="/assets/img/logo1.png" alt="">
+                            <span>Ưu đãi hot hit – Mê tít ngày đông</span>
+                        </li>
+                    </ul>
+                </li>
+                <li class="footer-item footer-item-3">
+                    <h3 class="footer-item-3-head">Hỗ Trợ</h3>
+                    <span>Về với chúng tôi</span> <br /> <br />
+                    <span>Trung tâm hỗ trợ</span><br /><br />
+                    <span>Chính sách bảo mật</span><br /><br />
+                    <span>Chính sách thanh toán</span><br /><br />
+                    <span>Chính sách giao hàng</span>
+                </li>
+                <li class="footer-item footer-item-4">
+                    <h3 class="footer-item-4-head">FACEBOOK</h3>
+                    <img src="/assets/img/fb.jpeg" alt="">
+                </li>
+            </ul>
         </div>
-        <div class="adress">Copyright 2022 © Thiết kế website Hà Nội bởi Topweb.com.vn</div>
+    </div>
+    <div class="adress">Copyright 2022 © Thiết kế website Hà Nội bởi Topweb.com.vn</div>
     </div>
     <script src="./assets/js/index.js">
 
-   
+
     </script>
     <script src="./assets/js/product-cart,.js"></script>
 </body>
+
 </html>

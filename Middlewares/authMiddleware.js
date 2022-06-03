@@ -2,6 +2,7 @@ const jwt = require("jsonwebtoken");
 const User = require("../Models/User");
 const asyncHandle = require("../Middlewares/asyncHandle");
 const dotenv = require("dotenv");
+
 dotenv.config();
 
 module.exports.authorization = async function (req, res, next) {
@@ -14,22 +15,33 @@ module.exports.authorization = async function (req, res, next) {
   next();
 };
 
+module.exports.auth = (req, res, next) => {
+  // let tokens = req.signedCookies?.tokens;
+  // if (!tokens) {
+  //   return next(new Error("Cookie không tìm thấy"));
+  // }
+  // let { access } = tokens;
+  // const payload = jwt.verify(access.token, config.jwt.secret);
+  // if (payload) {
+  //   req.userId = payload.sub;
+  //   return next();
+  // }
+};
+
 //protect
 module.exports.authenticateToken = asyncHandle(async (req, res, next) => {
   let token;
-  if (
-    req.headers.authorization &&
-    req.headers.authorization.startsWith("Bearer")
-  ) {
-    // Set token from Bearer token in header
-    token = req.headers.authorization.split(" ")[1];
-  }
-
+  token = req.cookies.token;
+  // if (
+  //   req.headers.authorization &&
+  //   req.headers.authorization.startsWith("Bearer")
+  // ) {
+  //   // Set token from Bearer token in header
+  //   token = req.headers.authorization.split(" ")[1];
+  // }
   // Make sure token exists
   if (!token) {
-    return res
-      .status(401)
-      .json({ error: "Not authorized to access this route" });
+    return res.redirect("http://localhost:3000/api/auth/login");
   }
 
   try {
@@ -38,8 +50,6 @@ module.exports.authenticateToken = asyncHandle(async (req, res, next) => {
     req.user = await User.findById(decoded.id);
     next();
   } catch (err) {
-    return res
-      .status(401)
-      .json({ error: "Not authorized to access this route" });
+    return res.redirect("http://localhost:3000/api/auth/login");
   }
 });

@@ -3,6 +3,7 @@ const path = require("path");
 const dotenv = require("dotenv");
 dotenv.config();
 const methodOverride = require("method-override");
+const cookies = require("cookie-parser");
 const app = express();
 app.use(express.json());
 
@@ -10,6 +11,7 @@ const router = require("./Routes/index");
 const db = require("./config/db")();
 app.use(methodOverride("_method"));
 app.use("/static", express.static("public"));
+app.use(cookies());
 
 app.use(express.static(path.join(__dirname, "public")));
 

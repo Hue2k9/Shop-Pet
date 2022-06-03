@@ -17,6 +17,10 @@ const buying = asyncHandle(async (req, res) => {
   }
 });
 
+const addCartView = asyncHandle(async (req, res) => {
+  res.render("product-cart.ejs");
+});
+
 //api/transaction/cart
 const addCart = asyncHandle(async (req, res) => {
   res.send("Add cart successfully!");
@@ -24,5 +28,6 @@ const addCart = asyncHandle(async (req, res) => {
 
 module.exports = {
   buying,
+  addCartView,
   addCart,
 };

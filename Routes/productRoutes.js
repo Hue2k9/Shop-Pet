@@ -1,13 +1,21 @@
 const express = require("express");
 const productController = require("../Controllers/ProductController");
 const { authenticateToken } = require("../Middlewares/authMiddleware");
-
+const upload = require("../Middlewares/upload");
 const productRouter = express.Router();
 
 productRouter
   .route("/")
-  .post(productController.addProduct)
-  .get(productController.getAllProduct);
+  .get(authenticateToken, productController.getAllProduct);
+
+productRouter
+  .route("/add")
+  .get(productController.addProductView)
+  .post(
+    upload.uploadPostImage,
+    upload.resizePostPhoto,
+    productController.addProduct
+  );
 
 productRouter
   .route("/:id")

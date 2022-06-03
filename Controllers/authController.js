@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken");
 const User = require("../Models/User");
+const Contact = require("../Models/contact");
 const asyncHandle = require("../Middlewares/asyncHandle");
 const crypto = require("crypto");
 
@@ -15,7 +16,8 @@ module.exports.login = asyncHandle(async (req, res) => {
   const token = jwt.sign({ username }, process.env.JWT_SECRET, {
     expiresIn: "30m",
   });
-  res.redirect("http://localhost:3000/api/products");
+  res.cookie("token", token);
+  res.redirect("/api/products");
 });
 
 module.exports.loginView = asyncHandle(async (req, res) => {
@@ -58,4 +60,13 @@ module.exports.changePassword = asyncHandle(async (req, res, next) => {
   user.resetPasswordExpire = undefined;
   await user.save();
   res.send("change  password successfuly");
+});
+
+module.exports.Contact = asyncHandle(async (req, res) => {
+  await Contact.create(req.body);
+  res.send("Thank your feedback");
+});
+
+module.exports.ContactView = asyncHandle(async (req, res) => {
+  res.render("contact.ejs");
 });

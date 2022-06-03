@@ -1,4 +1,5 @@
-document.getElementById('del').style.display = 'none';
+// document.getElementById('del').style.display = 'none';
+
 // function delProductCart() {
 //     var cartItem = document.querySelectorAll('.mycart-left-body-items')
 //     for(var i = 0; i < cartItem.length; i++){
@@ -11,6 +12,6 @@ document.getElementById('del').style.display = 'none';
 // }
 // delProductCart()
 function delItem(x) {
-    var delCart=x.parentElement.parentElement
-    delCart.remove()
+  var delCart = x.parentElement.parentElement;
+  delCart.remove();
 }
