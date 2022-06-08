@@ -9,6 +9,10 @@ productRouter
   .get(authenticateToken, productController.getAllProduct);
 
 productRouter
+  .route("/check_all")
+  .get(authenticateToken, productController.ProductView);
+
+productRouter
   .route("/add")
   .get(productController.addProductView)
   .post(

@@ -41,6 +41,12 @@ const updateProduct = asyncHandle(async (req, res) => {
   res.send("Update successful");
 });
 
+//delete,edit product
+const ProductView = asyncHandle(async (req, res) => {
+  const products = await Product.find({});
+  res.render("Product_admin.ejs", { products: products });
+});
+
 module.exports = {
   addProductView,
   addProduct,
@@ -48,4 +54,5 @@ module.exports = {
   deleteProduct,
   updateProduct,
   getProductById,
+  ProductView,
 };
