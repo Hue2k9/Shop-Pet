@@ -8,7 +8,10 @@ const addProduct = asyncHandle(async (req, res) => {
 });
 
 const addProductView = asyncHandle(async (req, res) => {
-  res.render("addProducts.ejs");
+  let token;
+  token = req.cookies.token;
+  const user = jwt.verify(token, process.env.SECRET_KEY);
+  res.render("addProducts.ejs", { user: user });
 });
 
 const getAllProduct = asyncHandle(async (req, res) => {
@@ -17,6 +20,14 @@ const getAllProduct = asyncHandle(async (req, res) => {
   token = req.cookies.token;
   const user = jwt.verify(token, process.env.SECRET_KEY);
   res.render("index.ejs", { user, products });
+});
+
+const getAllProductJson = asyncHandle(async (req, res) => {
+  let products = await Product.find();
+  let token;
+  token = req.cookies.token;
+  const user = jwt.verify(token, process.env.SECRET_KEY);
+  res.json(products);
 });
 
 const getProductById = asyncHandle(async (req, res) => {
@@ -55,4 +66,5 @@ module.exports = {
   updateProduct,
   getProductById,
   ProductView,
+  getAllProductJson,
 };

@@ -12,9 +12,10 @@
             height: 200px;
         }
 
-        /* h1 {
+        h1 {
             text-align: center;
-        } */
+        }
+
         button {
             background-color: red;
             color: white;
@@ -22,6 +23,10 @@
             border: 0px;
             border-radius: 5px;
             cursor: pointer;
+        }
+
+        table {
+            width: 100%;
         }
     </style>
 </head>
@@ -32,7 +37,7 @@
         <table class="table mt-4" border="1">
             <thead>
                 <tr>
-                    <th scope="col">STT</th>
+
                     <th scope="col">Mã sản phẩm</th>
                     <th scope="col">Tên sản phẩm</th>
                     <th scope="col">Hình ảnh</th>
@@ -46,9 +51,7 @@
             <tbody>
                 <% products.forEach(e=> { %>
                     <tr colspan="2">
-                        <th scope="row">
-                            <!-- <%= 1%> -->
-                        </th>
+
                         <td>
                             <%=e._id%>
                         </td>

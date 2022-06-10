@@ -7,6 +7,7 @@ const productRouter = express.Router();
 productRouter
   .route("/")
   .get(authenticateToken, productController.getAllProduct);
+productRouter.route("/json").get(productController.getAllProductJson);
 
 productRouter
   .route("/check_all")
