@@ -1,31 +1,48 @@
 //-----------------------------------cart------------------------
-var cart = new Array();
+const cart = new Array();
+const list = JSON.parse(localStorage.getItem("cart")) || [];
 const btn = document.querySelectorAll(".product-right-item-btn");
 btn.forEach((button, index) => {
   button.addEventListener("click", (e) => {
     var btnItem = e.target;
     var productItem = btnItem.parentElement;
+
     var productImg = productItem.querySelector(".product-right-item-avt").src;
     var productTitle = productItem.querySelector(
       ".product-right-title"
     ).innerText;
+
+    var productLink = productItem.querySelector(".link-detail").href;
+
     var productCost = productItem.querySelector(
       ".product-right-item-cost"
     ).innerText;
-    addCart(productTitle, productCost, productImg);
+    let quantity = 1;
+    // addCart(productTitle, productCost, productImg);
     //  addCartPay()
     DeleteProduct();
-    var sp = new Array(productImg, productTitle, productCost);
-    cart.push(sp);
-    sessionStorage.setItem("cart", JSON.stringify(cart));
-    console.log(cart.length);
+    console.log(productLink);
+    const sp = new Array(
+      productImg,
+      productTitle,
+      productCost,
+      quantity,
+      productLink
+    );
+    list.push(sp);
+    localStorage.setItem("cart", JSON.stringify(list));
     handlePrice();
   });
 });
 
 function addCart(productTitle, productCost, productImg) {
   var productList = document.querySelector(".cart-product-list");
+  // console.log(localStorage.getItem("cart"));
   var addProduct = document.createElement("li");
+  let list = localStorage.getItem("cart");
+  // for (let i = 0; i < list.length(); i++) {
+
+  // }
   var productContent =
     '<li class="cart-product-items"><img src="' +
     productImg +
@@ -78,16 +95,20 @@ function handlePrice() {
 // })
 
 var deltailArr = new Array();
+// const detailArr = json.parse(localStorage.getItem("cart"));
 function clickProduct(x) {
-  location.assign("detail-product.ejs");
-  var boxsp = x.parentElement.children;
-  var img = boxsp[0].src;
-  var title = boxsp[1].innerText;
-  var cost = boxsp[2].children[0].innerText;
-  // console.log(img, title, cost)
-  var deltail = new Array(img, title, cost);
-  deltailArr.push(deltail);
-  sessionStorage.setItem("deltailArr", JSON.stringify(deltailArr));
+  // location.assign(
+  //   "http://localhost:3000/api/products/629c53ff9e480d506e07345a"
+  // );
+  // var boxsp = x.parentElement.children;
+  // var img = boxsp[0].src;
+  // var title = boxsp[1].innerText;
+  // var cost = boxsp[2].children[0].innerText;
+  // console.log(img, title, cost);
+  // var deltail = new Array(img, title, cost);
+  // deltailArr.push(deltail);
+  // console.log(JSON.stringify(deltailArr));
+  // localStorage.setItem("deltailArr", JSON.stringify(deltailArr));
 }
 
 // function showDaltail() {
@@ -132,56 +153,40 @@ function clickProduct(x) {
 // }
 
 function intoCart() {
-  location.assign("product-cart.html");
+  location.assign("product-cart.ejs");
 }
 function showcart() {
-  var sp = sessionStorage.getItem("cart");
-  var hang = JSON.parse(sp);
-  var show = "";
-  var tong = 0;
-  for (var i = 0; i < hang.length; i++) {
+  let sp = localStorage.getItem("cart");
+  let hang = JSON.parse(sp);
+
+  let show = hang;
+  let tong = 0;
+  let text = "";
+  let addProduct;
+  for (let i in show) {
     tong += Number(hang[i][2]) * 1000;
-    show +=
-      '<li class="mycart-left-body-items">' +
-      '<div class="close item1">' +
-      '<div onclick="delItem(this)" class="icon">' +
-      '<i class="fa-solid fa-xmark"></i>' +
-      "</div>" +
-      '<div class="img">' +
-      '<img src="' +
-      hang[i][0] +
-      '" alt="">' +
-      "</div>" +
-      '<div class="title">' +
-      "<p>" +
-      hang[i][1] +
-      "</p>" +
-      "</div>" +
-      "</div>" +
-      '<div class="item2">' +
-      '<span class="cost">' +
-      hang[i][2] +
-      " </span> <sup> đ</sup>" +
-      "</div>" +
-      '<div class="item3">' +
-      '<input id="sl" type="number" min="0" max="10" value="1">' +
-      "</div>" +
-      '<div class="item4">' +
-      '<span id="count">' +
-      hang[i][2] +
-      "</span> " +
-      "</div>" +
-      "</li>";
+    text += `<li class="cart-product-items">
+    <img src="${show[i][0]}" alt="">
+    <div class="product-content">
+       <a href="${show[i][4]}"> <p>${show[i][1]}</p></a>
+        <span class="product-cost">${show[i][2]}</span>
+        <span class="product-VND">đ</span>
+    </div>
+    <div class="delete-product">
+        <i class="fa-solid fa-xmark"></i>
+    </div>
+</li>`;
+
+    var productList = document.querySelector(".cart-product-list");
+    addProduct = document.createElement("li");
   }
-  show +=
-    '<div class="update-cart"><div style="display:flex;"><h3>Tổng chi: </h3> <span style="transform: translateY(2.5px); margin-left: 10px;" id="kq"> 0 </span> đ</div> <br/>' +
-    '<button onclick="handleCart()" class="btn">Cập nhật lại giỏ hang</button> </div>';
-  document.getElementById("showcart").innerHTML = show;
+  text +=
+    '<button onclick="handleCart()" class="btn">Cập nhật lại giỏ text</button> </div>';
+  addProduct.innerHTML = text;
+  productList.appendChild(addProduct);
   document.getElementById("demsl").innerHTML = hang.length;
   document.getElementById("kq").innerHTML = tong.toLocaleString("de-DE");
 }
-
-showcart();
 
 function handlecost() {
   var cartItem = document.querySelectorAll(".mycart-left-body-items");

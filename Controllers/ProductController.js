@@ -1,4 +1,5 @@
 const Product = require("../Models/Product");
+const Cart = require("../Models/Cart");
 const asyncHandle = require("../Middlewares/asyncHandle");
 const jwt = require("jsonwebtoken");
 
@@ -20,6 +21,11 @@ const getAllProduct = asyncHandle(async (req, res) => {
   token = req.cookies.token;
   const user = jwt.verify(token, process.env.SECRET_KEY);
   res.render("index.ejs", { user, products });
+});
+
+const postCart = asyncHandle(async (req, res) => {
+  let cart = await Cart.find();
+  document.getElementById;
 });
 
 const getAllProductJson = asyncHandle(async (req, res) => {

@@ -17,6 +17,7 @@
 
 <body>
 
+
     <div class="website">
 
         <head>
@@ -66,7 +67,7 @@
                 </div>
             </div>
             <div class="header-bottom-cart">
-                <div class="cart-product">
+                <div class="cart-product" onclick="showcart()">
                     <h3>My Cart</h3>
                     <div class="wrap-cart">
                         <ul class="cart-product-list">
@@ -248,7 +249,7 @@
                     <ul class="body-product-right-list">
                         <% products.forEach(product=> { %>
                             <li class="body-product-right-item">
-                                <a href="/api/products/<%=product._id%>">
+                                <a href="/api/products/<%=product._id%>" class="link-detail">
                                     <img onclick="clickProduct(this)" src="uploads/<%=product.image%>" alt=""
                                         class="product-right-item-avt">
 
@@ -319,25 +320,29 @@
                 <li class="body-news-item">
                     <img src="img/new1.png" alt="">
                     <h5>Ưu đãi hót - Mê tít ngày đông</h5>
-                    <p>Duy nhất 13 và 14/01 tại Petcity 174 kim mã. Cái thời tiết vừa lanh vừa nóng này thì đi mua pet
+                    <p>Duy nhất 13 và 14/01 tại Petcity 174 kim mã. Cái thời tiết vừa lanh vừa nóng này thì đi mua
+                        pet
                         là một sự lựa chọn hoàn hảo.</p>
                 </li>
                 <li class="body-news-item">
                     <img src="img/new1.png" alt="">
                     <h5>Ưu đãi hót - Mê tít ngày đông</h5>
-                    <p>Duy nhất 13 và 14/01 tại Petcity 174 kim mã. Cái thời tiết vừa lanh vừa nóng này thì đi mua pet
+                    <p>Duy nhất 13 và 14/01 tại Petcity 174 kim mã. Cái thời tiết vừa lanh vừa nóng này thì đi mua
+                        pet
                         là một sự lựa chọn hoàn hảo.</p>
                 </li>
                 <li class="body-news-item">
                     <img src="img/new1.png" alt="">
                     <h5>Ưu đãi hót - Mê tít ngày đông</h5>
-                    <p>Duy nhất 13 và 14/01 tại Petcity 174 kim mã. Cái thời tiết vừa lanh vừa nóng này thì đi mua pet
+                    <p>Duy nhất 13 và 14/01 tại Petcity 174 kim mã. Cái thời tiết vừa lanh vừa nóng này thì đi mua
+                        pet
                         là một sự lựa chọn hoàn hảo.</p>
                 </li>
                 <li class="body-news-item">
                     <img src="img/new1.png" alt="">
                     <h5>Ưu đãi hót - Mê tít ngày đông</h5>
-                    <p>Duy nhất 13 và 14/01 tại Petcity 174 kim mã. Cái thời tiết vừa lanh vừa nóng này thì đi mua pet
+                    <p>Duy nhất 13 và 14/01 tại Petcity 174 kim mã. Cái thời tiết vừa lanh vừa nóng này thì đi mua
+                        pet
                         là một sự lựa chọn hoàn hảo.</p>
                 </li>
             </ul>
@@ -419,6 +424,7 @@
     </div>
     <div class="adress">Copyright 2022 © Thiết kế website Hà Nội bởi Topweb.com.vn</div>
     </div>
+
 
     <script src="js/index.js"></script>
     <script src="js/slider.js"></script>

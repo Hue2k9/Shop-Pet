@@ -1,6 +1,6 @@
 const Product = require("../Models/Product");
 const asyncHandle = require("../Middlewares/asyncHandle");
-
+const jwt = require("jsonwebtoken");
 //api/transaction/buying/:id
 const buying = asyncHandle(async (req, res) => {
   let { id } = req.params;
@@ -18,7 +18,10 @@ const buying = asyncHandle(async (req, res) => {
 });
 
 const addCartView = asyncHandle(async (req, res) => {
-  res.render("product-cart.ejs");
+  let token;
+  token = req.cookies.token;
+  const user = jwt.verify(token, process.env.SECRET_KEY);
+  res.render("product-cart", { user: user });
 });
 
 //api/transaction/cart

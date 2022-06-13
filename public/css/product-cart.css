@@ -163,3 +163,36 @@
   border: 1px dotted #999;
   padding: 12px;
 }
+.mycart-left-body-items i {
+  cursor: pointer;
+}
+.mycart-left-body-items .item4 span,
+.mycart-left-body-items .item2 span {
+  color: red;
+  font-weight: bold;
+}
+.mycart-left-body-items .title a {
+  color: black;
+}
+.mycart-right,
+.pay-credit-child {
+  padding-bottom: 200px;
+}
+button {
+  margin-top: 30px;
+  padding: 10px 20px;
+  background-color: red;
+  color: white;
+  border: 0px solid #333;
+  border-radius: 5px;
+}
+.mycart-right-body input {
+  height: 40px;
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 0px 12px;
+}
+.mycart-right-body p {
+  padding-bottom: 2px;
+  font-weight: bold;
+}
