@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <base href="/">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="css/header.css">
+</head>
+
+<body>
+    <header>
+        <ul class="left">
+            <li>
+                <a href="http://localhost:3000/api/products">PET CITY - SIÊU THỊ BÁN THÚ CƯNG ONLINE</a>
+            </li>
+        </ul>
+        <ul class="right">
+            <div class="list bell">
+                <div class="list help">
+                    <i class="fa-solid fa-bell"></i>
+                    <a href="">Thông báo</a>
+                </div>
+
+            </div>
+            <div class="list help">
+                <i class="fa-solid fa-circle-question"></i>
+                <a href="">Hỗ trợ</a>
+            </div>
+            <div class="avatar">
+                <ul class="top">
+                    <li> <img src="uploads/default.jpg" alt="">
+                        <a href="">
+                            <%=user.username%>
+                        </a>
+                        <i class="fa-solid fa-angle-down"></i>
+                    </li>
+                    <ul class="bottom">
+                        <a href="">Cá nhân</a>
+                        <br>
+                        <a href="">Đơn hàng</a>
+                        <br>
+                        <a href="">Đổi mật khẩu</a>
+                        <a href="/api/auth/login">Đăng xuất</a>
+                    </ul>
+                </ul>
+
+            </div>
+        </ul>
+    </header>
+</body>
+<script></script>
+
+</html>

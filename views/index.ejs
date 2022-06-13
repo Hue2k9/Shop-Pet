@@ -8,106 +8,87 @@
     <base href="/">
     <link href="css/index.css" type="text/css" rel="stylesheet">
     <link href="css/base.css" type="text/css" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="css/index.js"> -->
-
+    <link rel="stylesheet" href="css/index.js">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Document</title>
+    <title>Shop pet</title>
 </head>
 
 <body>
 
+
     <div class="website">
-        <div class="header">
 
-            <div class="header-top">
-                <div class="grid">
-                    <ul class="header-top-list">
-                        <li class="header-top-item">
-                            <a href="#" class="header-top-link">
-                                PETCITY - SIÊU THỊ THÚ CƯNG ONLINE
-                            </a>
-                        </li>
-                        <li class="header-top-item">
-                            <a href="#" class="header-top-link">
-                                CẦN LÀ CÓ - MÒ LÀ THẤY
-                            </a>
-                        </li>
-                        <li class="header-top-item">
-                            <a href="#" class="header-top-link">
-                                <i class="fa-brands fa-facebook"></i>
-                            </a>
-                        </li>
-                        <li class="header-top-item">
-                            <a href="#" class="header-top-link">
-                                <i class="fa-brands fa-instagram-square"></i>
-                            </a>
-                        </li>
-                        <li class="header-top-item">
-                            <a href="#" class="header-top-link">
-                                <i class="fa-brands fa-twitter"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+        <head>
+            <%- include('./partials/header.ejs') -%>
+        </head>
+        <!--============ header ===========-->
 
+        <div class="grid" style="padding-top:10px">
+            <ul class="header-top-list">
+                <li class="header-top-item">
+                    <a href="#" class="header-top-link">
+                        PETCITY - SIÊU THỊ THÚ CƯNG ONLINE
+                    </a>
+                </li>
+                <li class="header-top-item">
+                    <a href="#" class="header-top-link">
+                        CẦN LÀ CÓ - MÒ LÀ THẤY
+                    </a>
+                </li>
+                <li class="header-top-item">
+                    <a href="#" class="header-top-link">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                </li>
+                <li class="header-top-item">
+                    <a href="#" class="header-top-link">
+                        <i class="fa-brands fa-instagram-square"></i>
+                    </a>
+                </li>
+                <li class="header-top-item">
+                    <a href="#" class="header-top-link">
+                        <i class="fa-brands fa-twitter"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="grid">
+        <div class="header-bottom">
+            <div class="header-bottom-logo">
+                <img class="header-bottom-logo-img" src="img/logo.png" alt="">
             </div>
-            <div class="grid">
-                <div class="header-bottom">
-                    <div class="header-bottom-logo">
-                        <img class="header-bottom-logo-img" src="img/logo.png" alt="">
-                    </div>
-                    <div class="header-bottom-search">
-                        <div class="header-bottom-input">
-                            <input type="text" placeholder="Tìm kiếm...">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </div>
-                    </div>
-                    <div class="header-bottom-cart">
-                        <div class="cart-product">
-                            <h3>My Cart</h3>
-                            <div class="wrap-cart">
-                                <ul class="cart-product-list">
-                                    <!-- <li class="cart-product-items">
-                                            <img src="./assets/img/avt-prdt1.jpg" alt="">
-                                            <div class="product-content">
-                                                <p>Me-o – Thức ăn mèo Pesian 400g</p>
-                                                <span class="product-cost">140.000</span>
-                                                <span class="product-VND">đ</span>
-                                            </div>
-                                            <div class="delete-product">
-                                                <i class="fa-solid fa-xmark"></i>
-                                            </div>
-                                        </li>
-                                        <li class="cart-product-items">
-                                            <img src="./assets/img/avt-prdt1.jpg" alt="">
-                                            <div class="product-content">
-                                                <p>Me-o – Thức ăn mèo Pesian 400g</p>
-                                                <span class="product-cost">140.000</span>
-                                                <span class="product-VND">đ</span>
-                                            </div>
-                                            <div class="delete-product">
-                                                <i class="fa-solid fa-xmark"></i>
-                                            </div>
-                                        </li> -->
-                                </ul>
-                            </div>
-                        </div>
-                        <div style="display: flex; z-index: 1000;" onclick="intoCart()" class="into-cart">
-                            <div class="header-bottom-cart-text">
-                                <span>Giỏ hàng / </span>
-                                <span id="count-sp" class="header-bottom-cart-price">0</span>
+            <div class="header-bottom-search">
+                <div class="header-bottom-input">
+                    <input type="text" placeholder="Tìm kiếm...">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+            <div class="header-bottom-cart">
+                <div class="cart-product" onclick="showcart()">
+                    <h3>My Cart</h3>
+                    <div class="wrap-cart">
+                        <ul class="cart-product-list">
 
-                            </div>
-                            <div onclick="intoCart()" class="header-bottom-cart-logo">
-                                <i class="fa-solid fa-baby-carriage"></i>
-                            </div>
-                        </div>
+                        </ul>
+                    </div>
+                </div>
+                <div style="display: flex; z-index: 1000;" onclick="intoCart()" class="into-cart">
+                    <div class="header-bottom-cart-text">
+                        <span>Giỏ hàng / </span>
+                        <span id="count-sp" class="header-bottom-cart-price">0</span>
+
+                    </div>
+                    <div onclick="intoCart()" class="header-bottom-cart-logo">
+                        <i class="fa-solid fa-baby-carriage"></i>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    </div>
 
 
     </div>
@@ -150,7 +131,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-item-link">
+                    <a href="/api/auth/contact" class="nav-item-link">
                         liên hệ
                     </a>
                 </li>
@@ -266,154 +247,27 @@
                 </div>
                 <div class="body-product-right">
                     <ul class="body-product-right-list">
-                        <li class="body-product-right-item">
-                            <img onclick="clickProduct(this)" src="img/avt-prdt1.jpg" alt=""
-                                class="product-right-item-avt">
-                            <p class="product-right-title">Me-o – Thức ăn mèo Pesian 400g</p>
-                            <div style="display: flex;">
-                                <span class="product-right-item-cost">120.000</span><sub
-                                    style="text-decoration: underline;"> đ</sub>
-                            </div>
-                            <button class="product-right-item-btn btn">Thêm vào giỏ hàng.</button>
-                        </li>
-                        <li class="body-product-right-item">
-                            <img onclick="clickProduct(this)" src="img/sp1.jpg" alt="" class="product-right-item-avt">
-                            <p class="product-right-title">Vòng cổ khóa in đốm 1 cm</p>
-                            <div style="display: flex;">
-                                <span class="product-right-item-cost">80.000</span><sub
-                                    style="text-decoration: underline;"> đ</sub>
-                            </div>
-                            <button class="product-right-item-btn btn">Thêm vào giỏ hàng.</button>
-                        </li>
-                        <li class="body-product-right-item">
-                            <img onclick="clickProduct(this)" src="img/sp2.jpg" alt="" class="product-right-item-avt">
-                            <p class="product-right-title">Petstar – Vòng cổ in hình 1cm</p>
-                            <div style="display: flex;">
-                                <span class="product-right-item-cost">125.000</span><span> đ</span>
-                            </div>
-                            <button class="product-right-item-btn btn">Thêm vào giỏ hàng.</button>
-                        </li>
-                        <li class="body-product-right-item">
-                            <img onclick="clickProduct(this)" src="img/sp3.jpg" alt="" class="product-right-item-avt">
-                            <p class="product-right-title">Vali kéo Pawise Travel Trolley</p>
-                            <div style="display: flex;">
-                                <span class="product-right-item-cost">750.000</span><sub
-                                    style="text-decoration: underline;"> đ</sub>
-                            </div>
-                            <button class="product-right-item-btn btn">Thêm vào giỏ hàng.</button>
-                        </li>
-                        <li class="body-product-right-item">
-                            <img onclick="clickProduct(this)" src="img/sp4.jpg" alt="" class="product-right-item-avt">
-                            <p class="product-right-title">Túi xách Pawise Voyage Travel</p>
-                            <div style="display: flex;">
-                                <span class="product-right-item-cost">650.000</span><sub
-                                    style="text-decoration: underline;"> đ</sub>
-                            </div>
-                            <button class="product-right-item-btn btn">Thêm vào giỏ hàng.</button>
-                        </li>
-                        <li class="body-product-right-item">
-                            <img onclick="clickProduct(this)" src="img/sp5.jpg" alt="" class="product-right-item-avt">
-                            <p class="product-right-title">Cá nhồi bông Catnip size 60cm</p>
-                            <div style="display: flex;">
-                                <span class="product-right-item-cost">150.000</span><sub
-                                    style="text-decoration: underline;"> đ</sub>
-                            </div>
-                            <button class="product-right-item-btn btn">Thêm vào giỏ hàng.</button>
-                        </li>
-                        <li class="body-product-right-item">
-                            <img onclick="clickProduct(this)" src="img/sp6.jpg" alt="" class="product-right-item-avt">
-                            <p class="product-right-title">O’fresh – CAT CARE 7.2kg</p>
-                            <div style="display: flex;">
-                                <span class="product-right-item-cost">95.000</span><sub
-                                    style="text-decoration: underline;"> đ</sub>
-                            </div>
-                            <button class="product-right-item-btn btn">Thêm vào giỏ hàng.</button>
-                        </li>
-                        <li class="body-product-right-item">
-                            <img onclick="clickProduct(this)" src="img/sp7.jpg" alt="" class="product-right-item-avt">
-                            <p class="product-right-title">Thức ăn khô Royal Canin Kitten 10kg</p>
-                            <div style="display: flex;">
-                                <span class="product-right-item-cost">200.000</span><sub
-                                    style="text-decoration: underline;"> đ</sub>
-                            </div>
-                            <button class="product-right-item-btn btn">Thêm vào giỏ hàng.</button>
-                        </li>
+                        <% products.forEach(product=> { %>
+                            <li class="body-product-right-item">
+                                <a href="/api/products/<%=product._id%>" class="link-detail">
+                                    <img onclick="clickProduct(this)" src="uploads/<%=product.image%>" alt=""
+                                        class="product-right-item-avt">
+
+                                    <p class="product-right-title">
+                                        <%=product.productname%>
+                                    </p>
+                                </a>
+
+                                <div style="display: flex;">
+                                    <span class="product-right-item-cost">
+                                        <%=product.price%>
+                                    </span><sub style="text-decoration: underline;"> đ</sub>
+                                </div>
+                                <button class="product-right-item-btn btn">Thêm vào giỏ hàng.</button>
+                            </li>
+                            <% }) %>
                     </ul>
-                    <ul class="body-product-right-list">
-                        <li class="body-product-right-item">
-                            <img onclick="clickProduct(this)" src="img/avt-prdt1.jpg" alt=""
-                                class="product-right-item-avt">
-                            <p class="product-right-title">Me-o – Thức ăn mèo Pesian 400g</p>
-                            <div style="display: flex;">
-                                <span class="product-right-item-cost">120.000</span><sub
-                                    style="text-decoration: underline;"> đ</sub>
-                            </div>
-                            <button class="product-right-item-btn btn">Thêm vào giỏ hàng.</button>
-                        </li>
-                        <li class="body-product-right-item">
-                            <img onclick="clickProduct(this)" src="img/sp1.jpg" alt="" class="product-right-item-avt">
-                            <p class="product-right-title">Vòng cổ khóa in đốm 1 cm</p>
-                            <div style="display: flex;">
-                                <span class="product-right-item-cost">80.000</span><sub
-                                    style="text-decoration: underline;"> đ</sub>
-                            </div>
-                            <button class="product-right-item-btn btn">Thêm vào giỏ hàng.</button>
-                        </li>
-                        <li class="body-product-right-item">
-                            <img onclick="clickProduct(this)" src="img/sp2.jpg" alt="" class="product-right-item-avt">
-                            <p class="product-right-title">Petstar – Vòng cổ in hình 1cm</p>
-                            <div style="display: flex;">
-                                <span class="product-right-item-cost">125.000</span><sub
-                                    style="text-decoration: underline;"> đ</sub>
-                            </div>
-                            <button class="product-right-item-btn btn">Thêm vào giỏ hàng.</button>
-                        </li>
-                        <li class="body-product-right-item">
-                            <img onclick="clickProduct(this)" src="img/sp3.jpg" alt="" class="product-right-item-avt">
-                            <p class="product-right-title">Vali kéo Pawise Travel Trolley</p>
-                            <div style="display: flex;">
-                                <span class="product-right-item-cost">750.000</span><sub
-                                    style="text-decoration: underline;"> đ</sub>
-                            </div>
-                            <button class="product-right-item-btn btn">Thêm vào giỏ hàng.</button>
-                        </li>
-                        <li class="body-product-right-item">
-                            <img onclick="clickProduct(this)" src="img/sp4.jpg" alt="" class="product-right-item-avt">
-                            <p class="product-right-title">Túi xách Pawise Voyage Travel</p>
-                            <div style="display: flex;">
-                                <span class="product-right-item-cost">650.000</span><sub
-                                    style="text-decoration: underline;"> đ</sub>
-                            </div>
-                            <button class="product-right-item-btn btn">Thêm vào giỏ hàng.</button>
-                        </li>
-                        <li class="body-product-right-item">
-                            <img onclick="clickProduct(this)" src="img/sp5.jpg" alt="" class="product-right-item-avt">
-                            <p class="product-right-title">Cá nhồi bông Catnip size 60cm</p>
-                            <div style="display: flex;">
-                                <span class="product-right-item-cost">150.000</span><sub
-                                    style="text-decoration: underline;"> đ</sub>
-                            </div>
-                            <button class="product-right-item-btn btn">Thêm vào giỏ hàng.</button>
-                        </li>
-                        <li class="body-product-right-item">
-                            <img onclick="clickProduct(this)" src="img/sp6.jpg" alt="" class="product-right-item-avt">
-                            <p class="product-right-title">O’fresh – CAT CARE 7.2kg</p>
-                            <div style="display: flex;">
-                                <span class="product-right-item-cost">95.000</span><sub
-                                    style="text-decoration: underline;"> đ</sub>
-                            </div>
-                            <button class="product-right-item-btn btn">Thêm vào giỏ hàng.</button>
-                        </li>
-                        <li class="body-product-right-item">
-                            <img onclick="clickProduct(this)" src="img/sp7.jpg" alt="" class="product-right-item-avt">
-                            <p class="product-right-title">Thức ăn khô Royal Canin Kitten 10kg</p>
-                            <div style="display: flex;">
-                                <span class="product-right-item-cost">200.000</span><sub
-                                    style="text-decoration: underline;"> đ</sub>
-                            </div>
-                            <button class="product-right-item-btn btn">Thêm vào giỏ hàng.</button>
-                        </li>
-                    </ul>
+
                 </div>
             </div>
         </div>
@@ -466,25 +320,29 @@
                 <li class="body-news-item">
                     <img src="img/new1.png" alt="">
                     <h5>Ưu đãi hót - Mê tít ngày đông</h5>
-                    <p>Duy nhất 13 và 14/01 tại Petcity 174 kim mã. Cái thời tiết vừa lanh vừa nóng này thì đi mua pet
+                    <p>Duy nhất 13 và 14/01 tại Petcity 174 kim mã. Cái thời tiết vừa lanh vừa nóng này thì đi mua
+                        pet
                         là một sự lựa chọn hoàn hảo.</p>
                 </li>
                 <li class="body-news-item">
                     <img src="img/new1.png" alt="">
                     <h5>Ưu đãi hót - Mê tít ngày đông</h5>
-                    <p>Duy nhất 13 và 14/01 tại Petcity 174 kim mã. Cái thời tiết vừa lanh vừa nóng này thì đi mua pet
+                    <p>Duy nhất 13 và 14/01 tại Petcity 174 kim mã. Cái thời tiết vừa lanh vừa nóng này thì đi mua
+                        pet
                         là một sự lựa chọn hoàn hảo.</p>
                 </li>
                 <li class="body-news-item">
                     <img src="img/new1.png" alt="">
                     <h5>Ưu đãi hót - Mê tít ngày đông</h5>
-                    <p>Duy nhất 13 và 14/01 tại Petcity 174 kim mã. Cái thời tiết vừa lanh vừa nóng này thì đi mua pet
+                    <p>Duy nhất 13 và 14/01 tại Petcity 174 kim mã. Cái thời tiết vừa lanh vừa nóng này thì đi mua
+                        pet
                         là một sự lựa chọn hoàn hảo.</p>
                 </li>
                 <li class="body-news-item">
                     <img src="img/new1.png" alt="">
                     <h5>Ưu đãi hót - Mê tít ngày đông</h5>
-                    <p>Duy nhất 13 và 14/01 tại Petcity 174 kim mã. Cái thời tiết vừa lanh vừa nóng này thì đi mua pet
+                    <p>Duy nhất 13 và 14/01 tại Petcity 174 kim mã. Cái thời tiết vừa lanh vừa nóng này thì đi mua
+                        pet
                         là một sự lựa chọn hoàn hảo.</p>
                 </li>
             </ul>
@@ -536,15 +394,15 @@
                     <h3 class="footer-item-2-head">bài viết mới</h3>
                     <ul class="footer-item-2-body">
                         <li class="footer-item-2-body-child1">
-                            <img src="/assets/img/logo1.png" alt="">
+                            <img src="img/logo1.png" alt="">
                             <span>Ưu đãi hot hit – Mê tít ngày đông</span>
                         </li>
                         <li class="footer-item-2-body-child1">
-                            <img src="/assets/img/logo1.png" alt="">
+                            <img src="img/logo1.png" alt="">
                             <span>Ưu đãi hot hit – Mê tít ngày đông</span>
                         </li>
                         <li class="footer-item-2-body-child1">
-                            <img src="/assets/img/logo1.png" alt="">
+                            <img src="img/logo1.png" alt="">
                             <span>Ưu đãi hot hit – Mê tít ngày đông</span>
                         </li>
                     </ul>
@@ -559,14 +417,15 @@
                 </li>
                 <li class="footer-item footer-item-4">
                     <h3 class="footer-item-4-head">FACEBOOK</h3>
-                    <img src="/assets/img/fb.jpeg" alt="">
+                    <img src="img/fb.jpeg" alt="">
                 </li>
             </ul>
         </div>
     </div>
     <div class="adress">Copyright 2022 © Thiết kế website Hà Nội bởi Topweb.com.vn</div>
     </div>
-    <!-- <form action="http://localhost:3000/api/auth/products" method="POST"></form> -->
+
+
     <script src="js/index.js"></script>
     <script src="js/slider.js"></script>
     <script src="js/detail.js"></script>

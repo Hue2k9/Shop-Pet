@@ -1,0 +1,83 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+header {
+  background-color: rgb(16, 49, 100);
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header .avatar img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 2px;
+}
+
+header .left {
+  margin-left: 3%;
+}
+header .right {
+  margin-right: 2.7%;
+  display: flex;
+  align-items: center;
+}
+header .right .list i {
+  color: white;
+  padding-right: 2px;
+}
+header .right .list {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+header .right .avatar .top li {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+header .right .avatar .top li i {
+  color: white;
+  padding-left: 2px;
+}
+header .right a {
+  color: white;
+}
+header .left a {
+  color: white;
+  font-weight: bold;
+}
+header .right .avatar .bottom {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(16, 49, 100);
+  position: absolute;
+  margin-left: -30px;
+  padding-right: 50px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  display: none;
+}
+header .right .avatar .bottom a {
+  color: white;
+  padding-bottom: 10px;
+}
+header .right .top:hover .bottom {
+  display: block;
+}
+header .right .top:hover .bottom a {
+  margin-bottom: 10px;
+}

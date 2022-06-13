@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 200px;
+            height: 200px;
+        }
+
+        /* h1 {
+            text-align: center;
+        } */
+        button {
+            background-color: red;
+            color: white;
+            padding: 10px 15px;
+            border: 0px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js">
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
+    <!-- DataTables -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js">
+    </script>
+</head>
+
+<body>
+    <div class="mt-4">
+        <h1>Danh sách sản phẩm</h1>
+
+        <table id="users" class="class= table table-striped table-bordered">
+            <thead>
+                <tr id="list-header">
+                    <th scope="col">STT</th>
+                    <th scope="col">Mã sản phẩm</th>
+                    <th scope="col">Tên sản phẩm</th>
+                    <th scope="col">Hình ảnh</th>
+                    <th scope="col">Số lượng</th>
+                    <th scope="col">Giá bán</th>
+                    <th scope="col">Mô tả</th>
+                    <th scope="col">Thời gian tạo</th>
+                    <th scope="col" colspan="2">Hành động</th>
+
+                </tr>
+            </thead>
+
+        </table>
+        <button type="button" class="btn btn-primary" id="btnReloadData">Reload data</button>
+
+    </div>
+
+    <!--Delete-->
+    <!-- <div id="delete-course-modal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Delete course</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Bạn có chắc chắn muốn xóa khóa học?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-id="{{this._id}}">Xóa</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát</button>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+
+    <script>
+        var table;
+        // var urlUsers = "https://jsonplaceholder.typicode.com/users";
+        var urlUsers = "http://localhost:3000/api/products/json"
+        function initTableData() {
+            //Data from an URL ?
+            $.get(urlUsers, function (responseData) {
+                //Mofify "responseData" before showing ?
+                const i = 0;
+                var modifiedUsers = responseData.map((eachUser, i) => {
+                    i = i + 1;
+                    return {
+                        id: i,
+                        codeproduct: eachUser._id,
+                        productname: eachUser.productname,
+                        image: eachUser.image,
+                        quantity: eachUser.quantity,
+                        price: eachUser.price,
+                        description: eachUser.description,
+                        createdAt: eachUser.createdAt,
+
+                    };
+                });
+                table = $("#users").DataTable({
+                    processing: true,
+                    data: modifiedUsers,
+                    columns: [
+                        { data: "id" },
+                        { data: "codeproduct" },
+                        { data: "productname" },
+                        { data: "image" },
+                        { data: "quantity" },
+                        { data: "price" },
+                        { data: "description" },
+                        { data: "createdAt" },
+
+                    ],
+                });
+            }).fail(function () {
+                alert("Cannot get data from URL");
+            });
+        }
+
+        $(document).ready(function () {
+            initTableData();
+            $("#list-header").on({
+                mouseenter: function () {
+                    $(this).css("background-color", "lightgray");
+                },
+                mouseleave: function () {
+                    $(this).css("background-color", "lightblue");
+                },
+            });
+            $("#btnReloadData").on("click", function () {
+                //alert("reload data...")
+                table.ajax.reload();
+            });
+        });
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,124 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html {
+    background: url('https://phong.com/wp-content/uploads/2014/10/PW-Banner-x11.png') no-repeat center / fixed;
+
+}
+body {
+    font-size: 62.5%;
+    font-family: 'Times New Roman', Times, serif;
+    width: 100%;
+    height: 100vh;
+    color: #fff;
+    padding: 60px 100px;
+    background-color: rgba(0,0,0,0.9);
+
+}
+:root {
+    --font-size: 16px;
+}
+li {
+    list-style: none;
+}
+input {
+    height: 40px;
+    outline: none;
+   
+    padding: 0 1.2rem;
+    font-size:var(--font-size);
+    background-color: rgba(0,0,0,0.0);
+    border: 1px solid #333; 
+}
+
+
+.web {
+    font-size: 3.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.container {
+   
+   
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    
+    justify-content: center;
+}
+.container-left{
+    width: 65%;
+}
+
+.name{
+    display: flex;
+    width: 100%;
+    margin-bottom: 1.6rem;
+}
+ label {
+    margin-bottom: 0.6rem;
+}
+.first-name, .last-name, .email, .address, .message label {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.8rem;
+    font-weight: 100;
+    font-style: oblique;
+}
+.first-name{
+    width: 48%;
+    margin-right: 2%;
+}
+.first-name input {
+    width: 100%;
+}
+.last-name{
+    width: 48%;
+}
+.email{
+    margin-bottom: 1.6rem;
+}
+.email input, .address input, .message textarea {
+    width: 98%;
+}
+.address{
+    margin-bottom: 2rem;
+}
+.message textarea {
+    font-size: 1.2rem;
+    outline: none;
+    padding: 2rem;
+    height: 170px;
+    background-color: rgba(0,0,0,0.0);
+    border: 1px solid #333; 
+    color: #e5e5e5;
+
+}
+.container-right{
+    width: 30%; 
+    margin-left: 8%;
+   
+}
+#submit {
+    margin-top: 1.2rem;
+    padding: .9rem 2rem;
+    font-size: 1.2rem;
+}
+.container-right ul{
+    line-height: 1.6rem;
+}
+.container-right ul li {
+    margin-bottom: 2.8rem;
+}
+.container-right ul li h3{
+    font-size: 1.6rem;
+    font-style: oblique;
+}
+.container-right ul li p{
+    font-size: 1.2rem;
+    color: #e5e5e5;
+    font-style: oblique;
+}
+
