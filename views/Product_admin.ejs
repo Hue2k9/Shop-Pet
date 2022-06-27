@@ -32,63 +32,66 @@
 </head>
 
 <body>
-    <div class="mt-4">
-        <h1>Danh sách sản phẩm</h1>
-        <table class="table mt-4" border="1">
-            <thead>
-                <tr>
+    <form>
+        <div class="mt-4">
+            <h1>Danh sách sản phẩm</h1>
+            <table class="table mt-4" border="1">
+                <thead>
+                    <tr>
 
-                    <th scope="col">Mã sản phẩm</th>
-                    <th scope="col">Tên sản phẩm</th>
-                    <th scope="col">Hình ảnh</th>
-                    <th scope="col">Số lượng</th>
-                    <th scope="col">Giá bán</th>
-                    <th scope="col">Mô tả</th>
-                    <th scope="col">Thời gian tạo</th>
-                    <th scope="col" colspan="2">Chức năng</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% products.forEach(e=> { %>
-                    <tr colspan="2">
-
-                        <td>
-                            <%=e._id%>
-                        </td>
-                        <td>
-                            <%=e.productname%>
-                        </td>
-                        <td><img src="/uploads/<%=e.image%>" alt=""></td>
-                        <td>
-                            <%=e.quantity%>
-                        </td>
-                        <td>
-                            <%=e.price%>
-                                VNĐ
-                        </td>
-                        <td>
-                            <%=e.description%>
-                        </td>
-                        <td>
-                            <%=e.createdAt%>
-                        </td>
-                        <td>
-                            <a href="/courses/{{this._id}}/edit" class="btn btn-link"><button
-                                    style="background-color:blue">Sửa</button></a>
-                            <a href="" class="btn btn-link" data-toggle="modal"
-                                data-target="#delete-course-modal"><button>Xóa</button></a>
-
-                        </td>
-
+                        <th scope="col">Mã sản phẩm</th>
+                        <th scope="col">Tên sản phẩm</th>
+                        <th scope="col">Hình ảnh</th>
+                        <th scope="col">Số lượng</th>
+                        <th scope="col">Giá bán</th>
+                        <th scope="col">Mô tả</th>
+                        <th scope="col">Thời gian tạo</th>
+                        <th scope="col" colspan="2">Chức năng</th>
                     </tr>
+                </thead>
+                <tbody>
+                    <% products.forEach(e=> { %>
+                        <tr colspan="2">
 
-                    <% }) %>
-            </tbody>
-        </table>
-    </div>
+                            <td>
+                                <%=e._id%>
+                            </td>
+                            <td>
+                                <%=e.productname%>
+                            </td>
+                            <td><img src="/uploads/<%=e.image%>" alt=""></td>
+                            <td>
+                                <%=e.quantity%>
+                            </td>
+                            <td>
+                                <%=e.price%>
+                                    VNĐ
+                            </td>
+                            <td>
+                                <%=e.description%>
+                            </td>
+                            <td>
+                                <%=e.createdAt%>
+                            </td>
+                            <td>
+                                <a href="api/products/edit/<%=e._id%>" class="btn btn-link"><button
+                                        style="background-color:blue">Sửa</button></a>
+                                <a href="" class="btn btn-link" data-toggle="modal"
+                                    data-target="#delete-course-modal"><button>Xóa</button></a>
+
+                            </td>
+
+                        </tr>
+
+                        <% }) %>
+                </tbody>
+            </table>
+        </div>
+
+    </form>
 
     <!--Delete-->
-    <div id="delete-course-modal" class="modal" tabindex="-1" role="dialog">
+    <!-- <div id="delete-course-modal" class="modal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -106,7 +109,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!-- <script>
         document.addEventListener('DOMContentLoaded', function () {

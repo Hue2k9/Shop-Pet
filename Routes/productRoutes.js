@@ -23,9 +23,13 @@ productRouter
   );
 
 productRouter
+  .route("/edit/:id")
+  .get(productController.editProductView)
+  .put(productController.updateProduct);
+
+productRouter
   .route("/:id")
   .get(productController.getProductById)
-  .put(authenticateToken, productController.updateProduct) //chua giao dich, admin
-  .delete(authenticateToken, productController.deleteProduct); //admin
+  .delete(authenticateToken, productController.deleteProduct);
 
 module.exports = productRouter;

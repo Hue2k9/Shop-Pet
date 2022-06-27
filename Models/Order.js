@@ -21,9 +21,8 @@ const orderSchema = new Schema(
         ref: "product",
       },
       quantity: Number,
+      price: Number,
     },
-    quantity: Number,
-    price: Number,
   },
   { timestamps: true }
 );

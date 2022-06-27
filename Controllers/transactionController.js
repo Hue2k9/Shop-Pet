@@ -17,6 +17,15 @@ const buying = asyncHandle(async (req, res) => {
   }
 });
 
+const Order = asyncHandle(async (req, res) => {
+  let { name, phoneNumber, Address } = req.body;
+  let sp = localStorage.getItem("cart");
+  let hang = JSON.parse(sp);
+  let show = hang;
+  console.log(show);
+  res.json(show);
+});
+
 const addCartView = asyncHandle(async (req, res) => {
   let token;
   token = req.cookies.token;
@@ -33,4 +42,5 @@ module.exports = {
   buying,
   addCartView,
   addCart,
+  Order,
 };

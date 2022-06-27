@@ -8,6 +8,14 @@ const addProduct = asyncHandle(async (req, res) => {
   res.redirect("/api/products");
 });
 
+const editProductView = asyncHandle(async (req, res) => {
+  let products = await Product.findById(req.params.id);
+  let token;
+  token = req.cookies.token;
+  const user = jwt.verify(token, process.env.SECRET_KEY);
+  res.render("editProduct.ejs", { products: products, user: user });
+});
+
 const addProductView = asyncHandle(async (req, res) => {
   let token;
   token = req.cookies.token;
@@ -73,4 +81,5 @@ module.exports = {
   getProductById,
   ProductView,
   getAllProductJson,
+  editProductView,
 };
